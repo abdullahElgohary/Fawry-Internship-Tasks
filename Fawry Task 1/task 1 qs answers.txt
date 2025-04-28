@@ -1,0 +1,17 @@
+1. How does the script handle arguments and options?
+
+It first checks if --help is used. Then it loops through the options (-n, -v, or combined ones like -vn), setting flags. After that, it expects a search word and a filename. It checks if the file exists, builds the right grep command, and runs it.
+
+
+---
+
+2. If you were to support regex or -i/-c/-l options, how would your structure change?
+
+I would switch to getopts to handle options properly. That way, it’s easier to add new flags like -c (count) or -l (list files) without complicating the script.
+
+
+---
+
+3. What was the hardest part and why?
+
+Handling combined options like -vn without getopts was the hardest. It made the logic messy compared to handling single flags one by one.
